@@ -1,0 +1,42 @@
+--- agnubis-20031120/src/interface.c.orig	2003-11-21 02:03:14.000000000 +0100
++++ agnubis-20031120/src/interface.c	2003-11-21 02:09:07.000000000 +0100
+@@ -37,7 +37,6 @@
+ #include <stdio.h>
+ #include <gal/widgets/gtk-combo-stack.h>
+ #include <gal/widgets/gtk-combo-text.h>
+-#include <gal/e-paned/e-hpaned.h>
+ 
+ //#include <gtk/gtk.h>
+ #include <gnome.h>
+@@ -505,10 +504,10 @@
+ 
+ 	g_print("AgnubisGui::createClientArea() - enter\n");
+ 
+-	paned = e_hpaned_new();
+-	e_paned_set_position (E_PANED (paned), 150);
++	paned = gtk_hpaned_new();
++	gtk_paned_set_position (GTK_PANED (paned), 150);
+ 	gtk_widget_show(paned);
+-
++p
+ 	/* Navigation inside of the presentation */
+ 	notebook = gtk_notebook_new();
+ 	gtk_widget_show(notebook);
+@@ -576,7 +575,7 @@
+ 	gtk_widget_show(label);
+ 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook), child, label);
+ 
+-	e_paned_add1(E_PANED(paned), notebook);
++	gtk_paned_add1(GTK_PANED(paned), notebook);
+ 
+ 	/* Editing the presentation */
+ 	
+@@ -610,7 +609,7 @@
+ 	gtk_widget_show(vscrollbar);
+ 
+ 	table = gtk_table_new(3, 3, FALSE);
+-	e_paned_add2(E_PANED(paned), table);
++	gtk_paned_add2(GTK_PANED(paned), table);
+ 	gtk_widget_show(table);
+ 	gtk_table_attach(GTK_TABLE(table), hruler, 1, 2, 0, 1, GTK_EXPAND|GTK_FILL|GTK_SHRINK, GTK_FILL, 0, 0);
+ 	gtk_table_attach(GTK_TABLE(table), vruler, 0, 1, 1, 2, GTK_FILL, GTK_EXPAND|GTK_FILL|GTK_SHRINK, 0, 0);
