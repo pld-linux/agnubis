@@ -5,7 +5,8 @@ Version:	20031120
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	ftp://distfiles.pld-linux.org/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	5b0174a2a987a27fada0e950b3fb4b42
 Patch0:		%{name}-gdome-pc.patch
 Patch1:		%{name}-paned.patch
 Patch2:		%{name}-determinism.patch
