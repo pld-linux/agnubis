@@ -1,0 +1,28 @@
+--- agnubis-20031120/src/interface.c.orig	2003-11-21 02:25:13.000000000 +0100
++++ agnubis-20031120/src/interface.c	2003-11-21 02:31:26.000000000 +0100
+@@ -391,6 +391,7 @@
+ 			mainwin);
+ 	gtk_combo_box_set_title(GTK_COMBO_BOX(widget), "Font");
+ 	gtk_container_set_border_width(GTK_CONTAINER(widget), 0);
++	i = 0;
+ 	for (l = font_family_list; l; l = l->next)
+ 	{
+ 		if (l->data) // Avoid empty fonts in the list
+@@ -446,6 +447,8 @@
+ 	GList *l;
+ 	gint len, i, index;
+ 
++	dockitem = bonobo_dock_item_new("DockItem", BONOBO_DOCK_ITEM_BEH_NORMAL);
++	toolbar = gtk_toolbar_new();
+ 	/* Font Size Selector */
+ 	element = gtk_combo_text_new(TRUE);
+ 	g_signal_connect(G_OBJECT(GTK_COMBO_TEXT(element)->entry),
+@@ -507,7 +510,7 @@
+ 	paned = gtk_hpaned_new();
+ 	gtk_paned_set_position (GTK_PANED (paned), 150);
+ 	gtk_widget_show(paned);
+-p
++
+ 	/* Navigation inside of the presentation */
+ 	notebook = gtk_notebook_new();
+ 	gtk_widget_show(notebook);
