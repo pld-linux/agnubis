@@ -1,0 +1,11 @@
+--- agnubis-20031120/configure.in.orig	2003-11-20 18:00:19.000000000 +0100
++++ agnubis-20031120/configure.in	2003-11-20 18:01:00.000000000 +0100
+@@ -64,7 +64,7 @@
+ 	libbonoboui-2.0 >= $LIBBONOBOUI_REQUIRED
+ 	bonobo-activation-2.0 >= $BONOBOACTIVATION_REQUIRED
+ 	gal-2.0 >= $GAL_REQUIRED
+-	gdome-1.0 >= $GDOME_REQUIRED
++	gdome2 >= $GDOME_REQUIRED
+ 	gconf-2.0
+ 	])
+ 
