@@ -1,5 +1,5 @@
-
 Summary:	The GNOME presentation tool
+Summary(pl):	Narzêdzie do prezentacji dla GNOME
 Name:		agnubis
 Version:	20031120
 Release:	1
@@ -32,7 +32,16 @@ Requires(post):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The GNOME presentation tool.
+Agnubis is the GNOME Presentation Program comparable to such programs
+as Microsoft PowerPoint or Corel Present. It has been developed and
+designed for the GNOME 2 platform and is created to integrate well
+with the rest of the components in the GNOME Office suite.
+
+%description -l pl
+Agnubis to program do prezentacji dla GNOME porównywalny do takich
+narzêdzi jak Microsoft PowerPoint czy Corel Present. Zosta³ stworzony
+i zaprojektowany dla platformy GNOME 2 i jest tworzony tak, by dobrze
+integrowa³ siê z reszt± komponentów biurowych GNOME.
 
 %prep
 %setup -q
