@@ -7,6 +7,8 @@ License:	GPL
 Group:		X11/Applications
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-gdome-pc.patch
+Patch1:		%{name}-paned.patch
+Patch2:		%{name}-determinism.patch
 URL:		http://www.gnome.org/projects/agnubis/
 BuildRequires:	bonobo-activation-devel >= 0.9.8
 BuildRequires:	diacanvas-devel >= 0.6.0
@@ -34,8 +36,11 @@ The GNOME presentation tool.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
+echo '#' > demos/agn-demo/Makefile.am
 ./autogen.sh
 %configure
 %{__make}
@@ -61,34 +66,15 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README docs
-%{_sysconfdir}/gconf/schemas/*
 %attr(755,root,root) %{_bindir}/*
-
-%if %{?!_without_bonobo:1}0
-%attr(755,root,root) %{_libdir}/gnumeric-component
 %{_libdir}/bonobo/servers/*
-%endif
-%dir %{_libdir}/gnumeric
-%dir %{_libdir}/gnumeric/%{version}*
-%dir %{_libdir}/gnumeric/%{version}*/plugins
-%dir %{_libdir}/gnumeric/%{version}*/plugins/*
-%attr(755,root,root) %{_libdir}/gnumeric/%{version}*/plugins/*/*.so
-%{_libdir}/gnumeric/%{version}*/plugins/*/*.glade
-%{_libdir}/gnumeric/%{version}*/plugins/*/*.xml
-%{_libdir}/gnumeric/%{version}*/plugins/*/*.la
-%{_libdir}/gnumeric/%{version}*/plugins/*/*.py
-%{_libdir}/gnumeric/%{version}*/plugins/gnome-glossary/glossary-po-header
-
-%{_desktopdir}/*.desktop
-%{_datadir}/mime-info/*
+%{_libdir}/%{name}
+# FIXME: we don't want all the stuff
+%{_libdir}/lib*
+%{_datadir}/%{name}
+%{_datadir}/idl/*
+# FIXME: not the right place
+%{_datadir}/gnome/apps/*/*.desktop
 %{_pixmapsdir}/*.???
-%{_pixmapsdir}/gnumeric
-%{_omf_dest_dir}/%{name}
-
-%dir %{_datadir}/gnumeric
-%dir %{_datadir}/gnumeric/%{version}*
-%{_datadir}/gnumeric/%{version}*/glade
-%{_datadir}/gnumeric/%{version}*/gnome-2.0
-%{_datadir}/gnumeric/%{version}*/idl
-%{_datadir}/gnumeric/%{version}*/autoformat-templates
-%{_datadir}/gnumeric/%{version}*/templates
+%{_pixmapsdir}/%{name}
+%{_datadir}/gnome-2.0/ui/*
