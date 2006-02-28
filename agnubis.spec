@@ -23,8 +23,8 @@ BuildRequires:	intltool >= 0.25
 BuildRequires:	libbonobo-devel >= 1.116.0
 BuildRequires:	libbonoboui-devel >= 1.116.0
 BuildRequires:	libglade2-devel >= 1:1.99.0
-BuildRequires:	libgnomeui-devel >= 1.114.0
 BuildRequires:	libgnomecanvas-devel >= 1.114.0
+BuildRequires:	libgnomeui-devel >= 1.114.0
 BuildRequires:	libtool >= 2:1.4.3
 BuildRequires:	pkgconfig >= 1:0.14.0
 Requires(post):	GConf2
@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1	
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name} --with-gnome
 
