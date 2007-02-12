@@ -1,5 +1,5 @@
 Summary:	The GNOME presentation tool
-Summary(pl.UTF-8):   Narzędzie do prezentacji dla GNOME
+Summary(pl.UTF-8):	Narzędzie do prezentacji dla GNOME
 Name:		agnubis
 Version:	20031120
 Release:	1
